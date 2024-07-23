@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label for="store">выберите id торговой точки: </label>
+    <select id="store" name="fruits">
+        <option th:each="i : ${store_list}" th:value="${i.id}" th:text="${i.id}" }></option>
+    </select>
+</form>
+<button id="firstOption" class="float-left submit-button" >получить</button>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        sid=document.getElementById("store").value;
+        location.href = "http://localhost:8080/crud/get/store?"
+        +"sid="+sid
+    };
+</script>
+</body>
+</html>

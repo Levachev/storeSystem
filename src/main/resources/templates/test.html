@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${name}"></h1>
+<form>
+    <label for="utype">выберите тип торговой точки: </label>
+    <select id="utype" name="fruits">
+        <option th:each="i : ${params}" th:value="${i.id}" th:text="${i.value}" }></option>
+    </select>
+</form>
+
+<div style="padding:10px 0px 10px 0px;">
+<button id="firstOption" class="float-left submit-button" >обновить</button>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+
+    };
+</script>
+</body>
+</html>

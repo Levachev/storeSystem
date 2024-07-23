@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label for="uid">выберите id торговой точки: </label>
+    <select id="uid" name="fruits">
+        <option th:each="i : ${store_list}" th:value="${i.id}" th:text="${i.id}" }></option>
+    </select>
+</form>
+<div style="padding:10px 0px 10px 0px;">
+<button id="option" class="float-left submit-button" >исполнить запрос</button>
+    <label for="option">Получить номенклатуру и объем товаров в указанной торговой точке</label>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("option").onclick = function () {
+        id=document.getElementById("uid").value;
+        location.href = "http://localhost:8080/query/query3?id="+id;
+    };
+
+</script>
+</body>
+</html>

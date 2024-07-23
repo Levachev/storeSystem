@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><label for="uid">выберите id торговой точки: </label></td>
+        <td><select id="uid" name="fruits">
+                <option th:each="i : ${store_list}" th:value="${i.id}" th:text="${i.id}" }></option>
+            </select></td>
+    </tr>
+    <tr>
+        <td>
+            <label for="usid">выберите продавца: </label></td>
+        <td><select id="usid" name="fruits">
+                <option th:each="i : ${seller_list}" th:value="${i.id}" th:text="${i.firstname} +${i.lastname}" }></option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><label for="utype">введите тип торговой точки: </label></td>
+        <td><select id="utype" name="fruits">
+                <option value="department">универмаг</option>
+                <option value="shop">магазин</option>
+                <option value="kiosk">киоск</option>
+                <option value="lotok">лоток</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="firstOption" class="float-left submit-button" >первый вариант запроса</button>
+    <label for="firstOption">Получить данные об отношении объема продаж к объему торговых площадей</label>
+</div>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="secondOption" class="float-left submit-button" >второй вариант запроса</button>
+    <label for="secondOption">Получить данные об отношении объема продаж к числу торговых залов</label>
+</div>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="thirdOption" class="float-left submit-button" >третий вариант запроса</button>
+    <label for="thirdOption">Получить данные об отношении объема продаж к числу прилавков по торговым точкам указанного типа</label>
+</div>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="fourthOption" class="float-left submit-button" >четвертый вариант запроса</button>
+    <label for="fourthOption">Получить данные об отношении объема продаж к выработке отдельно взятого продавца торговой точки, по заданной торговой точке</label>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        id=document.getElementById("uid").value;
+        location.href = "http://localhost:8080/query/query10?"
+        +"id="+id
+        +"&op="+1;
+    };
+    document.getElementById("secondOption").onclick = function () {
+        id=document.getElementById("uid").value;
+        location.href = "http://localhost:8080/query/query10?"
+        +"id="+id
+        +"&op="+2;
+    };
+    document.getElementById("thirdOption").onclick = function () {
+        id=document.getElementById("uid").value;
+        type=document.getElementById("utype").value;
+        location.href = "http://localhost:8080/query/query10?"
+        +"id="+id
+        +"&type="+type
+        +"&op="+3;
+    };
+    document.getElementById("fourthOption").onclick = function () {
+        id=document.getElementById("uid").value;
+        seller_id=document.getElementById("usid").value;
+        location.href = "http://localhost:8080/query/query10?"
+        +"id="+id
+        +"&seller_id="+seller_id
+        +"&op="+4;
+    };
+</script>
+</body>
+</html>

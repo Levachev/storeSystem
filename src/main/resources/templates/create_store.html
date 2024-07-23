@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><label for="uorgname">введите название торговой организации: </label></td>
+        <td><input
+                type="text"
+                id="uorgname"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uoutl">введите размер торговой точки: </label></td>
+        <td><input
+                type="number"
+                id="uoutl"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="urent">введите арендную плату за месяц: </label></td>
+        <td><input
+                type="number"
+                id="urent"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uutil">введите плату за комунальные услуги: </label></td>
+        <td><input
+                type="number"
+                id="uutil"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="ucoun">введите количество прилавков: </label></td>
+        <td><input
+                type="number"
+                id="ucoun"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uhall">введите количество залов: </label></td>
+        <td><input
+                type="number"
+                id="uhall"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="usection">введите количество секций: </label></td>
+        <td><input
+                type="number"
+                id="usection"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="ufloor">введите количество этажей: </label></td>
+        <td><input
+                type="number"
+                id="ufloor"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uaddr">введите адрес торговой точки: </label></td>
+        <td><input
+                type="text"
+                id="uaddr"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uarea">введите площадь торговой точки: </label></td>
+        <td><input
+                type="number"
+                id="uarea"
+                name="name" /></td>
+    </tr>
+</table>
+<form>
+    <label for="utype">введите тип торговой точки: </label>
+    <select id="utype" name="fruits">
+        <option value="department">универмаг</option>
+        <option value="shop">магазин</option>
+        <option value="kiosk">киоск</option>
+        <option value="lotok">лоток</option>
+    </select>
+</form>
+<div style="padding:10px 0px 10px 0px;">
+<button id="firstOption" class="float-left submit-button" >создать</button>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        orgname=document.getElementById("uorgname").value;
+        outl=document.getElementById("uoutl").value;
+        rent=document.getElementById("urent").value;
+        util=document.getElementById("uutil").value;
+        coun=document.getElementById("ucoun").value;
+        hall=document.getElementById("uhall").value;
+        section=document.getElementById("usection").value;
+        floor=document.getElementById("ufloor").value;
+        addr=document.getElementById("uaddr").value;
+        area=document.getElementById("uarea").value;
+        type=document.getElementById("utype").value;
+
+        location.href = "http://localhost:8080/crud/create/store?orgname="+orgname
+        +"&outl="+outl
+        +"&rent="+rent
+        +"&util="+util
+        +"&coun="+coun
+        +"&hall="+hall
+        +"&section="+section
+        +"&floor="+floor
+        +"&addr="+addr
+        +"&area="+area
+        +"&type="+type;
+    };
+</script>
+</body>
+</html>

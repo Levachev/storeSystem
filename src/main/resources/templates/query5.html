@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><label for="ubegindate">введите начальную дату: </label></td>
+        <td><input
+                type="date"
+                id="ubegindate"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uenddate">введите конечную дату: </label></td>
+        <td><input
+                type="date"
+                id="uenddate"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td>
+            <label for="utype">введите тип торговой точки: </label></td>
+        <td><select id="utype" name="fruits">
+                <option value="department">универмаг</option>
+                <option value="shop">магазин</option>
+                <option value="kiosk">киоск</option>
+                <option value="lotok">лоток</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="firstOption" class="float-left submit-button" >первый вариант запроса</button>
+    <label for="firstOption">Получить данные о выработке на одного продавца за указанный период по всем торговым точкам</label>
+</div>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="secondOption" class="float-left submit-button" >второй вариант запроса</button>
+    <label for="secondOption">Получить данные о выработке на одного продавца за указанный период по торговым точкам заданного типа</label>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        bdate = document.getElementById("ubegindate").value;
+        edate = document.getElementById("uenddate").value;
+        location.href = "http://localhost:8080/query/query5"
+        +"?begindate="+bdate+"&enddate"+edate;
+    };
+    document.getElementById("secondOption").onclick = function () {
+        bdate = document.getElementById("ubegindate").value;
+        edate = document.getElementById("uenddate").value;
+        type = document.getElementById("utype").value;
+        location.href = "http://localhost:8080/query/query5"
+        +"?begindate="+bdate+"&enddate"+edate+"&type="+type;
+    };
+</script>
+</body>
+</html>

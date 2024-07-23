@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><label for="uprovname">введите имя поставщика: </label></td>
+        <td><input
+                type="text"
+                id="uprovname"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uprodname">введите название продукта: </label></td>
+        <td><input
+                type="text"
+                id="uprodname"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uamount">введите количество продукта поставщика: </label></td>
+        <td><input
+                type="number"
+                id="uamount"
+                name="name" /></td>
+    </tr>
+</table>
+<div>
+    <button id="firstOption" class="float-left submit-button" >создать</button>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        provname=document.getElementById("uprovname").value;
+        prodname=document.getElementById("uprodname").value;
+        amount=document.getElementById("uamount").value;
+        location.href = "http://localhost:8080/crud/create/provider_product?providername="+provname
+        +"&productname="+prodname
+        +"&amount="+amount;
+    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+                <label for="utype">введите тип торговой точки: </label></td>
+        <td><select id="utype" name="fruits">
+                    <option value="department">универмаг</option>
+                    <option value="shop">магазин</option>
+                    <option value="kiosk">киоск</option>
+                    <option value="lotok">лоток</option>
+                </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                <label for="uid">выберите id торговой точки: </label></td>
+        <td><select id="uid" name="fruits">
+                    <option th:each="i : ${store_list}" th:value="${i.id}" th:text="${i.id}" }></option>
+                </select>
+        </td>
+    </tr>
+</table>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="firstOption" class="float-left submit-button" >первый вариант запроса</button>
+    <label for="firstOption">Получить сведения о наиболее активных покупателях по данной торговой точке</label>
+</div>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="secondOption" class="float-left submit-button" >второй вариант запроса</button>
+    <label for="secondOption">Получить сведения о наиболее активных покупателях по торговым точкам указанного типа</label>
+</div>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="thirdOption" class="float-left submit-button" >третий вариант запроса</button>
+    <label for="thirdOption">Получить сведения о наиболее активных покупателях по всем торговым точкам</label>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        id = document.getElementById("uid").value;
+        location.href = "http://localhost:8080/query/query14?"
+        +"id="+id;
+    };
+    document.getElementById("secondOption").onclick = function () {
+        type = document.getElementById("utype").value;
+        location.href = "http://localhost:8080/query/query14?"
+        +"type="+type;
+    };
+    document.getElementById("thirdOption").onclick = function () {
+        location.href = "http://localhost:8080/query/query14";
+    };
+</script>
+</body>
+</html>

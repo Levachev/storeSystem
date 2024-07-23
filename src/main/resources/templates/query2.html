@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <label for="uname">выберите продукт: </label></td>
+        <td><select id="uname" name="fruits">
+                <option th:each="i : ${prod_list}" th:value="${i.name}" th:text="${i.name}" }></option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><label for="uamount">введите интересующее количество: </label></td>
+        <td><input
+                type="number"
+                id="uamount"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="ubegindate">введите начальную дату: </label></td>
+        <td><input
+                type="date"
+                id="ubegindate"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uenddate">введите конечную дату: </label></td>
+        <td><input
+                type="date"
+                id="uenddate"
+                name="name" /></td>
+    </tr>
+</table>
+<div style="padding:10px 0px 10px 0px;">
+<button id="firstOption" class="float-left submit-button" >первый вариант запроса</button>
+    <label for="firstOption">Получить перечень и общее число покупателей, купивших указанный вид товара в объеме, не менее заданного</label>
+</div>
+<div style="padding:10px 0px 10px 0px;">
+<button id="secondOption" class="float-left submit-button" >второй вариант запроса</button>
+    <label for="secondOption">Получить перечень и общее число покупателей, купивших указанный вид товара за некоторый период</label>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        name=document.getElementById("uname").value;
+        amount = document.getElementById("uamount").value;
+        location.href = "http://localhost:8080/query/query2?name="+name
+        +"&amount="+amount;
+    };
+    document.getElementById("secondOption").onclick = function () {
+        name=document.getElementById("uname").value;
+        bdate = document.getElementById("ubegindate").value;
+        edate = document.getElementById("uenddate").value;
+        location.href = "http://localhost:8080/query/query2?name="+name
+        +"&begindate="+bdate+"&enddate="+edate;
+    };
+</script>
+</body>
+</html>

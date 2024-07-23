@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label for="uorder">выберите заказ: </label>
+    <select id="uorder" name="fruits">
+        <option th:each="i : ${order_list}" th:value="${i.order_number}" th:text="${i.order_number}" }></option>
+    </select>
+</form>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="firstOption" class="float-left submit-button" >первый вариант запроса</button>
+    <label for="firstOption">Получить сведения о поставках товаров по указанному номеру заказа</label>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        ordernumber=document.getElementById("uorder").value;
+        location.href = "http://localhost:8080/query/query12?"
+        +"ordernumber="+ordernumber;
+    };
+</script>
+</body>
+</html>

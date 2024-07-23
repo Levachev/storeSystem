@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <label for="upname">выберите продукт: </label></td>
+        <td><select id="upname" name="fruits">
+                <option th:each="i : ${prod_list}" th:value="${i.name}" th:text="${i.name}" }></option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><label for="ubegindate">введите начальную дату: </label></td>
+        <td><input
+                type="date"
+                id="ubegindate"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uenddate">введите конечную дату: </label></td>
+        <td><input
+                type="date"
+                id="uenddate"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td>
+            <label for="uprovider">выберите поставщика: </label></td>
+        <td><select id="uprovider" name="fruits">
+                <option th:each="i : ${prov_list}" th:value="${i.name}" th:text="${i.name}" }></option>
+            </select>
+        </td>
+    </tr>
+</table>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="firstOption" class="float-left submit-button" >первый вариант запроса</button>
+    <label for="firstOption">Получить сведения о поставках определенного товара указанным поставщиком за все время поставок</label>
+</div>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="secondOption" class="float-left submit-button" >второй вариант запроса</button>
+    <label for="secondOption">Получить сведения о поставках определенного товара указанным поставщиком за некоторый период</label>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        pname=document.getElementById("upname").value;
+        providername = document.getElementById("uprovider").value;
+        location.href = "http://localhost:8080/query/query9?"
+        +"pname="+pname
+        +"&providername="+providername;
+    };
+    document.getElementById("secondOption").onclick = function () {
+        pname=document.getElementById("upname").value;
+        bdate = document.getElementById("ubegindate").value;
+        edate = document.getElementById("uenddate").value;
+        providername = document.getElementById("uprovider").value;
+        location.href = "http://localhost:8080/query/query9?"
+        +"pname="+pname
+        +"&providername="+providername
+        +"&begindate="+bdate
+        +"&enddate="+edate;
+    };
+</script>
+</body>
+</html>

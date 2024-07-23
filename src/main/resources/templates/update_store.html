@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><label for="sid">id торговой точки: </label></td>
+        <td><input
+                type="number"
+                id="sid"
+                th:value=${sid}
+                name="name"
+                readonly/></td>
+    </tr>
+    <tr>
+        <td><label for="outl">введите размер торговой точки: </label></td>
+        <td><input
+                type="number"
+                id="outl"
+                th:value=${outl}
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="rent">введите арендную плату за месяц: </label></td>
+        <td><input
+                type="number"
+                id="rent"
+                th:value=${rent}
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="util">введите плату за комунальные услуги: </label></td>
+        <td><input
+                type="number"
+                id="util"
+                th:value=${util}
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="coun">введите количество прилавков: </label></td>
+        <td><input
+                type="number"
+                id="coun"
+                th:value=${coun}
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="hall">введите количество залов: </label></td>
+        <td><input
+                type="number"
+                id="hall"
+                th:value=${hall}
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="section">введите количество секций: </label></td>
+        <td><input
+                type="number"
+                id="section"
+                th:value=${section}
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="floor">введите количество этажей: </label></td>
+        <td><input
+                type="number"
+                id="floor"
+                th:value=${floor}
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="addr">введите адрес торговой точки: </label></td>
+        <td><input
+                type="text"
+                id="addr"
+                th:value=${addr}
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="area">введите площадь торговой точки: </label></td>
+        <td><input
+                type="number"
+                id="area"
+                th:value=${area}
+                name="name" /></td>
+    </tr>
+</table>
+<div style="padding:10px 0px 10px 0px;">
+    <button id="firstOption" class="float-left submit-button" >обновить</button>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        sid=document.getElementById("sid").value;
+        outl=document.getElementById("outl").value;
+        rent=document.getElementById("rent").value;
+        util=document.getElementById("util").value;
+        coun=document.getElementById("coun").value;
+        hall=document.getElementById("hall").value;
+        section=document.getElementById("section").value;
+        floor=document.getElementById("floor").value;
+        addr=document.getElementById("addr").value;
+        area=document.getElementById("area").value;
+        location.href = "http://localhost:8080/crud/update/store?"
+        +"sid="+sid
+        +"&outl="+outl
+        +"&rent="+rent
+        +"&util="+util
+        +"&coun="+coun
+        +"&hall="+hall
+        +"&section="+section
+        +"&floor="+floor
+        +"&addr="+addr
+        +"&area="+area;
+    };
+</script>
+</body>
+</html>

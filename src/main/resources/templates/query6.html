@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+<tr>
+    <td><label for="ubegindate">введите начальную дату: </label></td>
+    <td><input
+            type="date"
+            id="ubegindate"
+            name="name" /></td>
+    </tr>
+    <tr>
+        <td><label for="uenddate">введите конечную дату: </label></td>
+        <td><input
+                type="date"
+                id="uenddate"
+                name="name" /></td>
+    </tr>
+    <tr>
+        <td>
+            <label for="usid">выберите продавца: </label></td>
+        <td><select id="usid" name="fruits">
+                <option th:each="i : ${seller_list}" th:value="${i.id}" th:text="${i.firstname}+${i.lastname}" }></option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="uid">выберите id торговой точки: </label></td>
+        <td><select id="uid" name="fruits">
+                <option th:each="i : ${store_list}" th:value="${i.id}" th:text="${i.id}" }></option>
+            </select>
+        </td>
+    </tr>
+</table>
+<div style="padding:10px 0px 10px 0px;">
+<button id="firstOption" class="float-left submit-button" >первый вариант запроса</button>
+    <label for="firstOption">Получить данные о выработке отдельно взятого продавца отдельно взятой торговой точки за указанный период</label>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        bdate = document.getElementById("ubegindate").value;
+        edate = document.getElementById("uenddate").value;
+        stid = document.getElementById("uid").value;
+        sid = document.getElementById("usid").value;
+        location.href = "http://localhost:8080/query/query6"
+        +"?begindate="+bdate+"&enddate="+edate
+        +"&sellerId="+sid
+        +"&storeId="+stid;
+    };
+</script>
+</body>
+</html>

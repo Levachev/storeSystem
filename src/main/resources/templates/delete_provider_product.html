@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label for="prov">выберите поставщика: </label>
+    <select id="prov" name="fruits">
+        <option th:each="i : ${prov_list}" th:value="${i.id}" th:text="${i.name}" }></option>
+    </select>
+</form>
+<form>
+    <label for="prod">выберите продукт: </label>
+    <select id="prod" name="fruits">
+        <option th:each="i : ${prod_list}" th:value="${i.id}" th:text="${i.name}" }></option>
+    </select>
+</form>
+<div>
+    <button id="firstOption" class="float-left submit-button" >удалить</button>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("firstOption").onclick = function () {
+        provid=document.getElementById("prov").value;
+        prodid=document.getElementById("prod").value;
+        location.href = "http://localhost:8080/crud/delete/provider_product?providerId="+provid
+        +"&productId="+prodid;
+    };
+
+</script>
+</body>
+</html>
